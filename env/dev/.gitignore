@@ -1,0 +1,17 @@
+# Terraform working dir
+.terraform/
+
+# State (never commit)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Plan files (local only)
+*.tfplan
+tfplan
+
+# Local helper scripts/files
+tfdestroy
