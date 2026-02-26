@@ -104,6 +104,12 @@ resource "azurerm_linux_virtual_machine" "vm" {
   disable_password_authentication = true
   network_interface_ids           = [azurerm_network_interface.vm_nic.id]
 
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+
   admin_ssh_key {
     username   = var.admin_username
     public_key = file(pathexpand(var.ssh_public_key_path))
@@ -128,3 +134,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   depends_on = [azurerm_network_security_rule.ssh_inbound]
 }
+
